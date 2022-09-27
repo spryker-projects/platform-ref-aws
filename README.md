@@ -117,7 +117,7 @@ Kubernetes API endpoint that can be accessed via `kubectl` or CI/CD systems.
    * Select the *Connect Using CLI*
    * Login to upbound using up cli: `up login`
    * Paste the commands to configure your local `kubectl` context
-   * Test your connectivity by running `kubectl get pods -n upbound-system`
+   * Test your connectivity by running `kubectl get pods -n crossplane-system
 
 ### Installing UXP on a Kubernetes Cluster
 
@@ -140,12 +140,12 @@ up uxp install
 Validate the install using the following command:
 
 ```console
-kubectl get all -n upbound-system
+kubectl get all -n crossplane-system
 ```
 
 #### Install the Platform Configuration
 
-Now that your kubectl context is configured to connect to a UXP Control Plane, 
+Now that your kubectl context is configured to connect to a UXP Control Plane,
 we can install this reference platform as a Crossplane package.
 
 ```console

@@ -5,16 +5,16 @@ metadata:
   labels:
     provider: aws
 spec:
-  writeConnectionSecretsToNamespace: upbound-system
+  writeConnectionSecretsToNamespace: crossplane-system
   compositeTypeRef:
     apiVersion: aws.platformref.crossplane.io/v1alpha1
     kind: XNetwork
   patchSets:
-  - name: network-id
-    patches:
-    - type: FromCompositeFieldPath
-      fromFieldPath: spec.id
-      toFieldPath: metadata.labels[networks.aws.platformref.crossplane.io/network-id]
+    - name: network-id
+      patches:
+        - type: FromCompositeFieldPath
+          fromFieldPath: spec.id
+          toFieldPath: metadata.labels[networks.aws.platformref.crossplane.io/network-id]
   resources:
     - base:
         apiVersion: ec2.aws.crossplane.io/v1beta1
@@ -26,10 +26,10 @@ spec:
             enableDnsSupport: true
             enableDnsHostNames: true
             tags:
-            - key: Owner
-              value: Platform Team
-            - key: Name
-              value: platformref-vpc
+              - key: Owner
+                value: Platform Team
+              - key: Name
+                value: platformref-vpc
       name: platformref-vcp
       patches:
         - type: PatchSet
@@ -64,7 +64,7 @@ spec:
             tags:
               - key: kubernetes.io/role/elb
                 value: "1"
-      name: subnet-public-west-2a 
+      name: subnet-public-west-2a
       patches:
         - type: PatchSet
           patchSetName: network-id

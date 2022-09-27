@@ -6,7 +6,7 @@ metadata:
     plan: full
     provider: helm
 spec:
-  writeConnectionSecretsToNamespace: upbound-system
+  writeConnectionSecretsToNamespace: crossplane-system
   compositeTypeRef:
     apiVersion: aws.platformref.crossplane.io/v1alpha1
     kind: XServices
